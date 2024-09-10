@@ -1,4 +1,4 @@
-﻿namespace Todo_List_API.Commands.Responses
+﻿namespace Todo_List_API.Commands.Responses.Auth
 {
     public class AuthResponse
     {

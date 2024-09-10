@@ -2,8 +2,10 @@
 using Todo_List_API.Data;
 using Todo_List_API.Data.Contexts;
 using Todo_List_API.Data.Entity;
+using Todo_List_API.Services;
 using Todo_List_API.Services.Auth;
 using Todo_List_API.Services.Auth.Interfaces;
+using Todo_List_API.UoW;
 using Todo_List_API.Utils.JWT;
 
 namespace Todo_List_API.Infra
@@ -18,6 +20,7 @@ namespace Todo_List_API.Infra
 
             //Services
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ITodoItemService, TodoItemService>();
             
             //Configs
             services.AddScoped<UserManager<User>>();

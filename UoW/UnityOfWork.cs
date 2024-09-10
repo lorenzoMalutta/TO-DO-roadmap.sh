@@ -1,6 +1,6 @@
 ﻿using Todo_List_API.Data.Contexts;
 
-namespace Todo_List_API.Data
+namespace Todo_List_API.UoW
 {
     public class UnityOfWork
     {

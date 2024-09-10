@@ -2,9 +2,9 @@
 using System.Net;
 using System.Security.Claims;
 using Todo_List_API.Commands.Requests.Auth;
-using Todo_List_API.Data;
 using Todo_List_API.Data.Entity;
 using Todo_List_API.Services.Auth.Interfaces;
+using Todo_List_API.UoW;
 using Todo_List_API.Utils.JWT;
 
 namespace Todo_List_API.Services.Auth
