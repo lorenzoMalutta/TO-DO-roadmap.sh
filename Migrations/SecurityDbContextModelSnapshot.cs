@@ -154,6 +154,47 @@ namespace Todo_List_API.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Todo_List_API.Data.Entity.TodoItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("AspNetUsersId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsDone")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("TotalTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AspNetUsersId");
+
+                    b.ToTable("TodoItems");
+                });
+
             modelBuilder.Entity("Todo_List_API.Data.Entity.User", b =>
                 {
                     b.Property<string>("Id")
@@ -269,6 +310,15 @@ namespace Todo_List_API.Migrations
                     b.HasOne("Todo_List_API.Data.Entity.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Todo_List_API.Data.Entity.TodoItem", b =>
+                {
+                    b.HasOne("Todo_List_API.Data.Entity.User", null)
+                        .WithMany()
+                        .HasForeignKey("AspNetUsersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

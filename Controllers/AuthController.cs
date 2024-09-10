@@ -17,7 +17,7 @@ namespace Todo_List_API.Controllers
         {
             _authService = authService;
         }
-
+        
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterRequest request)
         {
